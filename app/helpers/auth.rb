@@ -5,3 +5,7 @@ def current_user
     return nil
   end
 end
+
+def login?
+  session[:user_id].nil? ? false : true
+end
