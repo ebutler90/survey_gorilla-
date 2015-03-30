@@ -18,3 +18,11 @@ get '/survey/:id/edit' do
   @survey = Survey.find(params[:id])
   erb :'/survey/edit'
 end
+
+delete '/survey/:id/delete' do
+@current_survey = Survey.find_by(id: params[:id])
+@current_survey.destroy
+redirect "/user/#{session[:user_id]}/show"
+
+end
+

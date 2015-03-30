@@ -34,6 +34,6 @@ get '/logout' do
   redirect '/'
 end
 
-get '/survey/new'
+get '/survey/new' do
 
 end
