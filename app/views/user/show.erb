@@ -1,0 +1,17 @@
+<form method='get' action='/survey/new'>
+  <button type='submit'>Create Survey</button>
+</form>
+
+<h3>Surveys You've Created:</h3>
+
+<ol>
+
+  <% @current_user.surveys.each do |curr_survey| %>
+  <li> @curr_survey.title </li>
+
+  <%end%>
+
+</ol>
+
+
+
