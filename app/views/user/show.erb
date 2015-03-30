@@ -4,10 +4,19 @@
 
 <h3>Surveys You've Created:</h3>
 
-<ol>
+ <ol>
 
-  <% @current_user.surveys.each do |curr_survey| %>
-  <li> @curr_survey.title </li>
+  <% surveys.each do |curr_survey| %>
+  <li> <%= curr_survey.title %> </li>
+
+  <form method='get' action='/survey/<%=curr_survey.id%>/edit'>
+  <button type='submit'>Edit</button>
+  </form>
+
+  <form method='post' action='/survey/<%=curr_survey.id%>/delete'>
+    <input type='hidden' name = '_method' value='delete'>
+  <button type='submit'>Delete</button>
+  </form>
 
   <%end%>
 
