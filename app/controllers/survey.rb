@@ -19,6 +19,12 @@ get '/survey/:id/edit' do
   erb :'/survey/edit'
 end
 
+get 'survey/:id/results' do
+  @survey = Survey.find(params[:id])
+  erb :'survey/results'
+end
+
+
 delete '/survey/:id/delete' do
 @current_survey = Survey.find_by(id: params[:id])
 @current_survey.destroy
