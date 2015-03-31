@@ -7,6 +7,9 @@
 <a href= "#"> Create Survey </a>
 
 <div class="survey-container">
-
-
+  <%surveys.each do |survey|%>
+  <ul>
+    <li><a href="#"><%=survey.title%></a></li>
+  </ul>
+    <%end%>
 </div>

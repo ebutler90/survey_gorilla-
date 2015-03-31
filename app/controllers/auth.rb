@@ -1,5 +1,5 @@
 get '/' do
-  erb :welcome
+  erb :welcome, locals: {surveys: Survey.all.order('updated_at')}
 end
 
 get '/login' do
@@ -35,5 +35,5 @@ get '/logout' do
 end
 
 get '/survey/new' do
-
+  surveys = Survey.all
 end

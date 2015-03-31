@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
   <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
@@ -10,29 +10,38 @@
   <!--
     application.css is where you put your styles
   -->
-  <link rel="stylesheet" href="/css/application.css">
-  <!-- Load Vollkorn font -->
-  <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
+  <!-- <link rel="stylesheet" href="/css/application.css">  -->
+  <!-- Bootstrap -->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
 
-  <title></title>
-</head>
-<body>
-<div id="content">
-  <header>
 
-    <!-- <a href="/"><img src="/img/zenchinese.png" class="logo"></a> -->
-    <div id="login-toolbar">
-      <% if current_user %>
-        <a href="/logout">Log Out</a>
-      <% else %>
-        <a href="/login">Log In</a>
-        <a href="/signup">Sign Up</a>
-      <% end %>
-  </header>
-  <%= yield %>
-</div>
-</body>
-</html>
+  <head><!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+    <title></title>
+  </head>
+  <body>
+    <div id="content">
+      <header>
+        <div id="login-toolbar">
+        <%=erb :navbar%>
+
+        </header>
+        <%= yield %>
+      </div>
+    </body>
+    </html>
