@@ -1,20 +1,22 @@
 <h1> <%= survey.title %></h1>
 <hr>
 <div class='survey-results'>
-  <% questions.each_with_index do |question, index| %>
-<form action='/survey/<%=survey.id%>/results' method='post' name='survey_submit'>
-  <input type='hidden' name= 'question.id' value= '<%=question.id%>'>
-  <dl>
-  <dt><%=index+1%>. <%= question.content%></dt>
+  <form action='/survey/<%=survey.id%>/results' method='post' name='survey_submit'>
+    <% questions.each_with_index do |question, index| %>
+      <input type='hidden' name= 'question.id'>
+      <dl>
+        <dt><%=index+1%>. <%= question.content%></dt>
+        <select name='choice[<%=question.id%>]'>
+        <%question.choices.each do |choice|%>
+          <dd>
+            <option name='choice' value="<%=choice.id%>"><%=choice.content%></option>
+          </dd>
+        <%end%>
+        </select>
+      </dl>
+    <%end%>
+    <input type='submit' value='Submit'>
+  </form>
 
-  <select name='choice_id'>
-  <%question.choices.each do |choice|%>
-    <dd><option name='choice' value="<%=choice.id%>"><%=choice.content%></option></dd>
-  <%end%>
-  </select>
-  </dl>
 
-<%end%>
-  <input type='submit' value='Submit'>
-</form>
 </div>

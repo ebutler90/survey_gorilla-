@@ -25,10 +25,13 @@ get '/survey/:id/results' do
 end
 
 post '/survey/:id/results' do
-  p "*************************"
-  p params
-  p "*************************"
-
+  params[:choice].each do |question_id, choice_id|
+    result = Result.new(choice: Choice.find(choice_id),
+                  question: Question.find(question_id),
+                  user: current_user)
+    result.save!
+  end
+  redirect "/user/#{current_user.id}/show"
 end
 
 delete '/survey/:id/delete' do
