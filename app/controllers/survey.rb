@@ -1,5 +1,6 @@
 get '/survey/new' do
-  redirect '/authentication/signin' if !current_user
+  # redirect '/authentication/signin' if !current_user
+  # uncomment line 2 and 3 after inplementing auth.
   erb :'/survey/new'
 end
 
