@@ -10,8 +10,8 @@ post '/survey/new' do
 end
 
 get '/survey/:id' do
-  @survey = Survey.find(params[:id])
-  erb :'/survey/show'
+  survey = Survey.find(params[:id])
+  erb :'/survey/show', locals: {survey: survey, questions: survey.questions}
 end
 
 get '/survey/:id/edit' do
@@ -19,11 +19,17 @@ get '/survey/:id/edit' do
   erb :'/survey/edit'
 end
 
-get 'survey/:id/results' do
+get '/survey/:id/results' do
   @survey = Survey.find(params[:id])
   erb :'survey/results'
 end
 
+post '/survey/:id/results' do
+  p "*************************"
+  p params
+  p "*************************"
+
+end
 
 delete '/survey/:id/delete' do
 @current_survey = Survey.find_by(id: params[:id])
