@@ -33,7 +33,3 @@ get '/logout' do
   session[:user_id] = nil
   redirect '/'
 end
-
-get '/survey/new' do
-  surveys = Survey.all
-end

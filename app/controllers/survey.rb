@@ -1,5 +1,5 @@
 get '/survey/new' do
-  redirect '/authentication/signin' if !current_user
+  redirect '/signin' if !current_user
   erb :'/survey/new'
 end
 
