@@ -1,4 +1,4 @@
-get '/user/:id/show' do
+get '/user/:id' do
   erb :'user/show', locals: {surveys: current_user.surveys}
 end
 
